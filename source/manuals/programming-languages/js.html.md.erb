@@ -128,32 +128,17 @@ If you're using [Prettier](#prettier), this will be set up for you. Otherwise, y
 
 ## Naming conventions
 
-* Avoid single letter names. Be descriptive with your naming.
+* Use [camelCase](http://eslint.org/docs/rules/camelcase) when naming objects, functions, and instances.
 
   ```javascript
   // Bad
-  var n = 'thing'
-  function q () { ... }
-
-  // Good
-  var name = 'thing'
-  function query () { ... }
-  ```
-
-  **Why:** Descriptive names help future developers pick up parts of the code
-  faster without having to read it all.
-
-* Use camelCase when naming objects, functions, and instances.
-
-  ```javascript
-  // Bad
-  var this_is_my_object = {}
-  var THISIsMyVariable = 'thing'
+  const this_is_my_object = {}
+  const THISIsMyVariable = 'thing'
   function ThisIsMyFunction() { ... }
 
   // Good
-  var thisIsMyObject = {}
-  var thisIsMyVariable = 'thing'
+  const thisIsMyObject = {}
+  const thisIsMyVariable = 'thing'
   function thisIsMyFunction() { ... }
   ```
 
@@ -161,18 +146,21 @@ If you're using [Prettier](#prettier), this will be set up for you. Otherwise, y
 
   ```javascript
   // Bad
-  function user (options) {
+  class user {
+    constructor(options) {
     this.name = options.name
   }
-  var Bob = new user({
+  const Bob = new user({
     name: 'Bob Parr'
   })
 
   // Good
-  function User(options) {
-    this.name = options.name
+  class User {
+    constructor(options) {
+      this.name = options.name
+    }
   }
-  var bob = new User({
+  const bob = new User({
     name: 'Bob Parr'
   })
   ```
